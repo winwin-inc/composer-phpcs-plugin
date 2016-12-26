@@ -1,0 +1,16 @@
+{
+    "name": "winwin/composer-phpcs-plugin",
+    "type": "composer-plugin",
+    "require": {
+        "composer-plugin-api": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "winwin\\composer\\": "src/"
+        }
+    },
+    "extra": {
+        "class": "winwin\\composer\\PhpcsPlugin"
+    }
+}
