@@ -1,5 +1,7 @@
 {
+    "description": "Composer plugin for code style checking before commit using php-cs-fixer",
     "name": "winwin/composer-phpcs-plugin",
+    "license": "MIT",
     "type": "composer-plugin",
     "require": {
         "composer-plugin-api": "^1.0",
