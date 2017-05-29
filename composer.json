@@ -1,4 +1,5 @@
 {
+    "description": "Composer plugin for code style checking before commit using php-cs-fixer",
     "name": "winwin/composer-phpcs-plugin",
     "type": "composer-plugin",
     "require": {
