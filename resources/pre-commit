@@ -11,6 +11,7 @@ if $HAS_PHP_CS_FIXER; then
     FILES=`git status --porcelain | grep -e '^[AM]\(.*\).php$' | cut -c 3-`
     if [ -n "$FILES" ]; then
         $PHP_CS_FIXER fix --config=.php_cs $FILES
+        git add $FILES
     fi
 else
     echo ""
