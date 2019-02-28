@@ -34,6 +34,9 @@ class PhpcsPlugin implements PluginInterface, EventSubscriberInterface
             $this->io->isVeryVerbose() && $this->io->writeError("No .git found, not in vcs?");
             return;
         }
+        if (!file_exists('.php_cs')) {
+            copy(__DIR__.'/../resources/php_cs', '.php_cs');
+        }
         if (file_exists($hookFile = $hooksDir . '/pre-commit')) {
             $this->io->isVeryVerbose() && $this->io->writeError("pre-commit hook file exists, skip");
             return;
