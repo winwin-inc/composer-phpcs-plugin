@@ -4,6 +4,7 @@
     "license": "MIT",
     "type": "composer-plugin",
     "require": {
+        "php": "^7.2",
         "composer-plugin-api": "^1.0",
         "friendsofphp/php-cs-fixer": "^2.0"
     },
