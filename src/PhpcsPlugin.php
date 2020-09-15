@@ -61,13 +61,14 @@ class PhpcsPlugin implements PluginInterface, EventSubscriberInterface
         chmod($hookFile, 0755);
 
         $preCommit = $hooksDir . '/pre-commit';
-        if (file_exists($preCommit)
-            && md5_file($preCommit) === md5_file($newHookFile)) {
+        if (!file_exists($preCommit)
+            || md5_file($preCommit) === md5_file($newHookFile)) {
             file_put_contents($preCommit, '#!/bin/sh'."\n");
         }
         if (strpos(file_get_contents($preCommit), 'pre-commit.phpcs') === false) {
             file_put_contents($preCommit, "\n" . '$(dirname $0)/pre-commit.phpcs'. "\n", FILE_APPEND);
         }
+        chmod($preCommit, 0755);
         $this->io->write("<info>Install git hook script $hookFile</>");
     }
 }
