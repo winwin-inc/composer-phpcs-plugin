@@ -15,5 +15,6 @@ return PhpCsFixer\Config::create()
         'ordered_imports' => true,
         'no_superfluous_phpdoc_tags' => false,
         'no_unused_imports' => true,
+        'phpdoc_to_comment' => false,
         'no_alias_functions' => false,
     ]);

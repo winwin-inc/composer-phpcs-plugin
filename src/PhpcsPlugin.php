@@ -71,4 +71,12 @@ class PhpcsPlugin implements PluginInterface, EventSubscriberInterface
         chmod($preCommit, 0755);
         $this->io->write("<info>Install git hook script $hookFile</>");
     }
+
+    public function deactivate(Composer $composer, IOInterface $io)
+    {
+    }
+
+    public function uninstall(Composer $composer, IOInterface $io)
+    {
+    }
 }
