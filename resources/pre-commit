@@ -2,7 +2,7 @@
 
 PHP_CS_FIXER="vendor/bin/php-cs-fixer"
 HAS_PHP_CS_FIXER=false
-PHP_CS_FIXER_OPTIONS="--config=.php_cs"
+PHP_CS_FIXER_OPTIONS="--config=.php-cs-fixer.dist.php"
 MAX_ARG_LEN=8000
 
 if [ -x vendor/bin/php-cs-fixer ]; then

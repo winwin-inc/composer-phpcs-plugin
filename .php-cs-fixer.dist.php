@@ -1,10 +1,12 @@
-<?php // -*- php -*-
+<?php
 
-$finder = PhpCsFixer\Config::create()
-        ->getFinder()
+$config = new PhpCsFixer\Config();
+
+$finder = PhpCsFixer\Finder::create()
+        ->in('src')
         ->notName('config.php');
 
-return PhpCsFixer\Config::create()
+return $config
     ->setFinder($finder)
     ->setRiskyAllowed(true)
     ->setRules([
