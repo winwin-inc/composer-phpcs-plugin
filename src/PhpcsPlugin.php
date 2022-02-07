@@ -48,15 +48,15 @@ class PhpcsPlugin implements PluginInterface, EventSubscriberInterface
         }
 
         $newHookFile = __DIR__.'/../resources/pre-commit';
-        if (!file_exists($newHookFile) && !file_exists('.php_cs.cache')) {
+        if (!file_exists($newHookFile) && !file_exists('.php-cs-fixer.cache')) {
             // maybe removed by composer
             return;
         }
         if (!file_exists('.php-cs-fixer.dist.php')) {
             copy(__DIR__.'/../resources/php-cs-fixer.dist.php', '.php-cs-fixer.dist.php');
         }
-        if (file_exists('.php_cs.cache')) {
-            @unlink('.php_cs.cache');
+        if (file_exists('.php-cs-fixer.cache')) {
+            @unlink('.php-cs-fixer.cache');
         }
         if (file_exists('.php_cs')) {
            $this->io->info('.php_cs is now rename .php-cs-fixer.dist.php. See https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/UPGRADE-v3.md for upgrade instructions');
@@ -72,8 +72,7 @@ class PhpcsPlugin implements PluginInterface, EventSubscriberInterface
         chmod($hookFile, 0755);
 
         $preCommit = $hooksDir.'/pre-commit';
-        if (!file_exists($preCommit)
-            || md5_file($preCommit) === md5_file($newHookFile)) {
+        if (!file_exists($preCommit)) {
             file_put_contents($preCommit, '#!/bin/sh'."\n");
         }
         if (false === strpos(file_get_contents($preCommit), 'pre-commit.phpcs')) {
