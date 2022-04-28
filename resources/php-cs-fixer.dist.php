@@ -4,7 +4,7 @@ $config = new PhpCsFixer\Config();
 
 $finder = PhpCsFixer\Finder::create()
         ->in('src')
-        ->notName('config.php');
+        ->notName(['config.php', 'fixtures']);
 
 return $config
     ->setFinder($finder)
